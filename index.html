@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashish Rijal - Portfolio</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#social-media">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HOME SECTION -->
+  <section id="home" style="position: relative; height: 100vh; overflow: hidden;">
+    <img src="bg.jpeg" alt="Background" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;" />
+    <div style="position: relative; z-index: 1; color: white; text-align: center; padding-top: 100px;">
+      <img src="ashish.jpeg" alt="Ashish Rijal" style="width:300px;height:300px;border-radius:50%;border:4px solid white;margin-bottom:20px;">
+      <h1>Ashish Rijal</h1>
+      <p>Geomatics Engineering Student | Web GIS Developer in Progress</p>
+      <p>Secretary at <a href="https://ges.ku.edu.np/" target="_blank">Geomatics Engineering Society</a></p>
+      <p>Student Chapter Lead at <a href="https://sc.isprs.org/members/isprs-sc-student-chapter/" target="_blank">ISPRS SC-KUGES</a></p>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-box">
+      <p>
+        I am a passionate Geomatics Engineering student at Kathmandu University with strong interests in geospatial analysis, open-source technologies, and sustainable development. 
+        I have worked on projects involving GIS-based landfill site suitability and route optimization, and I am currently exploring web development to integrate geospatial data into interactive platforms. 
+        As Secretary of the Geomatics Engineering Society, I am actively involved in organizing technical events and promoting innovation in the geospatial field.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Key Projects</h2>
+    <div class="projects-list">
+      <div class="project-card">
+        <h3>Geo-Hackafest 2024 Winner</h3>
+        <p>Created a utility website for spatial queries and visualizations with multi-criteria filtering.</p>
+      </div>
+      <div class="project-card">
+        <h3>3D Physical Model of Block 9</h3>
+        <p>Designed a detailed 3D model of Block 9 using topographic and architectural data.</p>
+      </div>
+      <div class="project-card">
+        <h3>Large-Scale Solar Power Plant Site Selection Using GIS and AHP</h3>
+        <p>Utilized GIS and the Analytical Hierarchy Process (AHP) to identify optimal locations for solar power plants, focusing on sustainability and efficient land use.</p>
+      </div>
+      <div class="project-card">
+        <h3>Integrated Approach to Waste Management in Banepa Municipality</h3>
+        <p>Co-authored a research paper combining GIS, AHP, and network analysis to optimize waste collection routes and identify suitable landfill sites in Banepa Municipality.</p>
+        <a href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=optimal+waste+management+in+banepa" target="_blank">📄 Read the article on Google Scholar</a>
+      </div>
+      <div class="project-card">
+        <h3>Traverse Calculator Using Java and GUI</h3>
+        <p>Developed a desktop application for automated traverse calculations featuring a user-friendly GUI, aimed at simplifying field data processing for surveyors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KATHMANDU MAP -->
+  <section>
+    <h2>Explore Kathmandu</h2>
+    <p class="tool-desc">
+  This map provides an interactive overview of Kathmandu's administrative boundaries, including provinces, districts, and local units—displayed dynamically based on zoom level. You can toggle layers such as hospitals, tourist sites, and police stations to see their distribution across Kathmandu. Clicking on a local unit displays its name, area in sq. km, population, and the number of nearby tourism or emergency service features—helping users understand spatial patterns and service coverage across the city.
+</p>
+
+    <div id="ktmmap"></div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-list">
+      <div class="education-card">
+        <h3>Bachelor of Engineering in Geomatics Engineering</h3>
+        <p><a href="https://ku.edu.np" target="_blank">Kathmandu University</a></p>
+        <p>2021 – Expected 2026</p>
+        <p><strong>GPA:</strong> Currently Studying</p>
+      </div>
+      <div class="education-card">
+        <h3>+2 Science (NEB)</h3>
+        <p><a href="https://bernhardt.edu.np" target="_blank">Bernhardt College</a></p>
+        <p>Graduated: 2021</p>
+        <p><strong>GPA:</strong> 3.71</p>
+      </div>
+      <div class="education-card">
+        <h3>SEE</h3>
+        <p><a href="https://greenhill.edu.np" target="_blank">Green Hill School</a></p>
+        <p>Graduated: 2019</p>
+        <p><strong>GPA:</strong> 3.85</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPATIAL TOOL -->
+  <section id="spatial-tools">
+    <h2>Emergency Services Proximity Tool</h2>
+    <p class="tool-desc">
+  This tool allows users to assess the proximity of emergency services—such as hospitals, clinics, police stations, and fire stations—from my key personal locations like Home (Chhaimale), Green Hill School, Bernhardt College, and Kathmandu University. Users can specify a buffer distance in meters and see which emergency facilities fall within that radius. This spatial analysis helps visualize how well-served each base location is in case of an emergency.
+</p>
+    <div id="controls">
+      <label for="bufferDistance">Buffer Distance (m): </label>
+      <input type="number" id="bufferDistance" value="1000" min="10" step="10">
+      <button onclick="loadBuffer()">Load</button>
+    </div>
+    <div id="map" style="height: 600px; width: 100%; margin-top: 20px;"></div>
+    <div id="summary"></div>
+  </section>
+  <hr class="divider">
+  <!-- ROUTE TOOL -->
+  <section id="shortest-route">
+    <h2>Shortest Route to Emergency Services</h2>
+    <p class="tool-desc">
+  This smart routing tool helps you find the fastest road-based route from my location (such as home, school, or university) to the nearest emergency service. After selecting a starting location and choosing a service type (hospital/clinic, police, or fire station), the tool uses real-world road networks to compute and display the shortest route on the map. It’s designed to simulate emergency navigation scenarios, enabling users to visualize and understand critical access paths during crises.
+</p>
+    <label for="sourceSelector">Select Starting Location:</label>
+    <select id="sourceSelector">
+      <option value="home">Home - Chhaimale</option>
+      <option value="school">Green Hill School</option>
+      <option value="college">Bernhardt H.S School & College</option>
+      <option value="university">Kathmandu University</option>
+    </select>
+
+    <label for="emergencyType">Select Emergency Type:</label>
+    <select id="emergencyType">
+      <option value="hospital">Hospital/Clinic</option>
+      <option value="police">Police Station</option>
+      <option value="fire_station">Fire Station</option>
+    </select>
+
+    <button onclick="findNearestEmergencyRoute()">Find Nearest Route</button>
+    <div id="routeMap"></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fas fa-map-marker-alt"></i></div></div><h3>GIS</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fas fa-satellite-dish"></i></div></div><h3>Remote Sensing</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fab fa-python"></i></div></div><h3>Python</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fab fa-java"></i></div></div><h3>Java</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fab fa-html5"></i></div></div><h3>HTML</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fab fa-css3-alt"></i></div></div><h3>CSS</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fab fa-js"></i></div></div><h3>JavaScript</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fas fa-database"></i></div></div><h3>PostgreSQL</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fas fa-camera-retro"></i></div></div><h3>Envi</h3></div>
+      <div class="skill-card"><div class="icon-box"><div class="icon-wrapper"><i class="fas fa-cogs"></i></div></div><h3>PgAdmin</h3></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="social-media">
+    <h2>Connect with Me</h2>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/ashish.rijal.969" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/ashish_rijal115/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/ashish-rijal-9208ba271/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:rijalaashish1234@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+    <h3>Contact No: +977 9869682984</h3>
+    <h3>Email: rijalaashish1234@gmail.com // rijalaashish1234@icloud.com</h3>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Ashish Rijal
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+/* === GENERAL LAYOUT === */
+body {
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* === HOME SECTION === */
+#home {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  padding: 50px 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Anchor hover effects */
+a:hover {
+  color: rgb(97, 138, 138);
+}\na:active {
+  color: #555;
+}
+#home p a {
+  color: #ffd700;
+  transition: color 0.3s ease;
+}
+#home p a:hover {
+  color: rgb(97, 138, 138);
+}
+
+/* === NAVIGATION BAR === */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #20022c;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.nav-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: white;
+  margin: 0;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #ffd700;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    display: none;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+/* === HEADINGS === */
+h2 {
+  display: inline-block;
+  background-color: #431a4b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === ABOUT SECTION === */
+#about {
+  background-color: #675288;
+  padding: 40px;
+  text-align: center;
+}
+#about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+.about-box {
+  background-color: #5b7b9b;
+  color: black;
+  padding: 25px 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* === PROJECTS SECTION === */
+#projects {
+  background-color: #675288;
+  padding: 40px;
+}
+.projects-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.project-card {
+  background-color: #5b7b9b;
+  color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 30%;
+  margin: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.project-card h3 {
+  background-color: #20022c;
+  color: white;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  text-align: center;
+  border-radius: 10px;
+}
+.project-card p {
+  color: black;
+  padding: 10px;
+  border-radius: 5px;
+}
+.project-card a {
+  color: #20022c;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+.project-card a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* === EDUCATION SECTION === */
+#education {
+  background-color: #675288;
+  text-align: center;
+  padding: 50px 0;
+}
+#education h2 {
+  display: inline-block;
+  background-color: #431a4b;
+  color:white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+}
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: 0 20px;
+}
+.education-card {
+  background-color: #5b7b9b;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.education-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+.education-card p {
+  margin: 4px 0;
+  color: #272727;
+}
+#education a {
+  color: #141414;
+  text-decoration: none;
+  font-weight: bold;
+}
+#education a:hover {
+  color: #6a1b9a;
+  text-decoration: underline;
+}
+
+/* === SKILLS SECTION === */
+#skills {
+  background-color: #675288;
+  padding: 50px 0;
+  text-align: center;
+}
+#skills h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  justify-items: center;
+}
+.skill-card {
+  background-color: #84b6d8;
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  color: black;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.icon-box {
+  background-color: #84b6d8;
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icon-wrapper {
+  background-color: #20022c;
+  color: #fff;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+.skill-card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+.icon-box h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: black;
+  margin: 0;
+}
+
+/* === SOCIAL MEDIA SECTION === */
+#social-media {
+  background-color: #675288;
+  text-align: center;
+  padding: 40px 20px;
+}
+#social-media h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #20022c;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.social-icons a:hover {
+  background-color: #3b0d4d;
+  transform: scale(1.1);
+  color: #fff;
+}
+
+/* === MAP SECTIONS === */
+#routeMap {
+  height: 600px;
+  margin-top: 20px;
+  border: 2px solid #ddd;
+}
+#ktmmap {
+  height: 500px;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+.leaflet-marker-icon.small-dot {
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+/* === FOOTER === */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #20022c;
+  color: #fff;
+  text-align: center;
+  padding: 12px 10px;
+  font-size: 0.95rem;
+  z-index: 999;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+/* === Tablet and Below (≤ 992px) === */
+@media (max-width: 992px) {
+  section {
+    padding: 30px 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  #ktmmap,
+  #map,
+  #routeMap {
+    height: 500px;
+  }
+
+  h1, h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .project-card {
+    flex: 1 1 100%;
+  }
+}
+
+/* === Mobile Phones (≤ 768px) === */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav a {
+    padding: 8px;
+  }
+
+  #ktmmap,
+  #map,
+  #routeMap {
+    width: 98%;
+    height: 420px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .project-card {
+    margin-bottom: 20px;
+  }
+
+  #bufferDistance {
+    width: 150px;
+  }
+
+  #bufferControl button {
+    padding: 8px 12px;
+  }
+}
+
+/* === Small Devices (≤ 480px) === */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  #ktmmap,
+  #map,
+  #routeMap {
+    height: 350px;
+    border-radius: 10px;
+  }
+
+  #bufferDistance {
+    width: 120px;
+  }
+
+  #bufferControl button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .map-section {
+    padding: 20px 10px;
+  }
+
+  footer {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+#ktmmap,
+#map,
+#routeMap {
+  background-color: #f5f7fa; /* match with website */
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+}#proximity-section {
+  background-color: #fff6e6;
+}
+
+#route-section {
+  background-color: #eafaf1;
+}
+
+.tool-desc {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 0.95rem;
+}
+.divider {
+  border: none;
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+section {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
