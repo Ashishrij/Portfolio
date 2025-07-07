@@ -280,6 +280,7 @@ fetch('ktm.geojson')
     kathmanduFeature = data.features[0];
     ktmmap.fitBounds(layer.getBounds());
     fetchEmergencyServices();
+    fetchTourismServices();
   });
 
 document.addEventListener('change', e => {
